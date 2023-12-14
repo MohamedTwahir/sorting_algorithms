@@ -71,4 +71,61 @@ t improves upon insertion sort by moving out of order elements more than one pos
 # Bubble sort
 Bubble sort is a simple sorting algorithm. The algorithm starts at the beginning of the data set. It compares the first two elements, and if the first is greater than the second, it swaps them. It continues doing this for each pair of adjacent elements to the end of the data set. It then starts again with the first two elements, repeating until no swaps have occurred on the last pass.
 This algorithm's average time and worst-case performance is O(n2), so it is rarely used to sort large, unordered data sets. Bubble sort can be used to sort a small number of items (where its asymptotic inefficiency is not a high penalty). Bubble sort can also be used efficiently on a list of any length that is nearly sorted (that is, the elements are not significantly out of place).
+## Big O 
+It is the simplified analysis of an algorithm's efficiency.
+Big O gives us:
+	* Algorithm complexity in terms of the input size, N
+	* Machine Independent - gives a way to extract machines effeciency.
+	*  basic computer steps
+	* Time & space
+There are couple of ways to determine an algorithms efficiency.
+We can determine:
+		* worst-case
+		* best-case
+		* average-case
+In bigO notation we typically look at the worst case.
+* General rules
+1. Big O notation ignores constants
+ a function running time of 5n is stated as O(n)
+2. Certain terms "dominate" others:
+O(1) < O(logn) < O(n) < O(nlogn) < O(n^2) < O(2^n) < O(n!)
+We ignore or drop low-order terms when dominated by high order ones
+# Examples
+* Constant time
+Imagine we have the following code:
+x = 5 + (15 * 20);
+notice it is independent of input size N
+bigO will be O(1)
+Imagine this other code:
+x = 5 + (15 * 20);
+y = 15 - 2;
+print x + y;
+You will notice each statement has its execution time.
+Total time = O(1) + O(1) + O(1) = 3 * O(1)
+but we ignore the constants so the big O will be O(1)
+* linear time
+Suppose we have the following for loop that prints a number in particular range
+for x in range (0, n):
+	print x;
+
+we now the print statement will be O(1) so the block of statements will be N * O(1)
+In other words N * O(1) = O(N)
+
+Here is another example:
+y = 5 + (15 * 20);
+for x in range (0, n):
+	print x;
+The first statement will be O(1) and we know the for loop will be O(N)
+So the total time = O(1) + O(N) but we drop the lower terms at the expense of higher terms so the bigO will be O(N).
+* quadratic time
+In the below example of code:
+for x in range (0, n):
+	for y in range (0, n):
+		print x * y;
+From that the print statement will be executed O(N) * O(N) which will be O(N^2)
+   
+Another last statement assuming its bigO has been deduced:
+if x > 0: //O(1)
+else if x < 0: //O(logn)
+else:// O(N^2)
 

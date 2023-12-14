@@ -1,29 +1,30 @@
-#include <stdio.h>
+#include "sort.h"
 /**
- * the way bubble sort works is if two items are not in order it swaps them to be in either ascending or descending order.
+ * bubble_sort - function that sorts an array using bubble sort algorithm
+ * @array: array to be sorted
+ * @size: size of array to be sorted
  */
-int main(void)
+void bubble_sort(int *array, size_t size)
 {
-	int a[] = {5, 1, 6, 8, 5};
-	int length = 5;
-	 /* outer loop control the number of passes */
-	/* the inner loops will do the passes/swaps */
-	for (int i = 0; i < length; i++)
+	unsigned int i;
+	unsigned int j;
+	int temp;
+
+	if (size < 2)
+		return;
+	/* outer loop to control no of swaps*/
+	for (i = 0; i < size; i++)
 	{
-		for (int j = 0; j < (length -1); j++)
+		/*inner loop to do the swaps*/
+		for (j = 0; j < size - i - 1; j++)
 		{
-			if (a[j] > a[j + 1])
+			if (array[j] > array[j + 1])
 			{
-				int temp = a[j];
-				a[j] = a[j + 1];
-				a[j + 1] = temp;
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+				print_array(array, size);
 			}
 		}
-	
 	}
-	for (int i = 0; i < length; i++)
-		printf("a[%d] = %d\n", i, a[i]);
-
-
-	return (0);
 }

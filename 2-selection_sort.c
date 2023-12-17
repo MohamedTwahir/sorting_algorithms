@@ -1,29 +1,31 @@
 #include "sort.h"
 
-int main()
+/**
+ * selection_sort - sorts an array using selection sort algorithm
+ * @array: array to be sorted
+ * @size: size/length of the array
+ */
+void selection_sort(int *array, size_t size)
 {
-	int a[] = {5, 9, 7, 3, 2, 1};
-	int length = 7;
-	/* to go through the array we will use for loop */
+	unsigned int i, j, min_pos;
 
-	for (int i = 0; i < length - 1; i++)
+	register int temp;
+
+	if (size < 2)
+		return;
+
+	for (i = 0; i < size; i++)
 	{
-		/*find the smallest number in unsorted array*/
-		int min_pos = i;
-		for (int j = i + 1; j < length; j++)
-			if (a[j] < a[min_pos]) min_pos = j;
-
-		if (min_pos != i)
+		min_pos = i;
+		for (j = i + 1; j < size; j++)
 		{
-			 int temp = a[i];
-			 a[i] = a[min_pos];
-			 a[min_pos] = temp;
+			if (array[j] < array[min_pos])
+				min_pos = j;
 		}
-	
+		temp = array[i];
+		array[i] = array[min_pos];
+		array[min_pos] = temp;
+		if (i != min_pos)
+			print_array(array, size);
 	}
-
-	for (int i = 0; i < length; i++)
-		printf("a[%d] = %d\n", i, a[i]);
-
-	return (0);
 }

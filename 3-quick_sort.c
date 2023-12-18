@@ -60,7 +60,7 @@ void quickSort(int *array, int low, int high, size_t size)
 	}
 }
 /**
- * ascend_sort - sorts an array in ascending order
+ * quick_sort - sorts an array in ascending order
  * @array: pointer to the array to be  sorted
  * @size: size of the array
  */
